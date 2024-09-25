@@ -1,6 +1,6 @@
 import React from "react";
 
-function JobCards({ job }) {
+function JobCards({ job, addFilter ,setFiltersOn }) {
   const {
     company,
     logo,
@@ -16,8 +16,13 @@ function JobCards({ job }) {
     tools,
   } = job;
 
+  const handleAddFilter = (value) => {
+    addFilter(value);
+    setFiltersOn(true);
+  };
+        
   return (
-    <div className="card_container">
+    <div className={`card_container ${featured ? "border" : ""}`}>
       <div className="information_container">
         <div className="img_container">
           <img src={`/images/${logo}`} alt={`${company} logo`} />
@@ -42,15 +47,23 @@ function JobCards({ job }) {
       </div>
 
       <div className="languages_Tools_container">
-        <p className="role">{role}</p>
-        <p className="level">{level}</p>
+        <p className="role" onClick={() => handleAddFilter(role)}>
+          {role}
+        </p>
+        <p className="level" onClick={() => handleAddFilter(level)}>
+          {level}
+        </p>
         {languages.map((languages, key) => (
-          <p id={key} className="languages">
+          <p
+            id={key}
+            className="languages"
+            onClick={() => handleAddFilter(languages)}
+          >
             {languages}
           </p>
         ))}
         {tools.map((tools, key) => (
-          <p id={key} className="tools">
+          <p id={key} className="tools" onClick={() => handleAddFilter(tools)}>
             {tools}
           </p>
         ))}

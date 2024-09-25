@@ -1,22 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Filter from "./Filter";
 import JobCards from "./JobCards";
 
 import data from "../data/data.json";
 
 function Main() {
+  const [filters, setFilters] = useState([]);
+  const [filteredJobs, setFilteredJobs] = useState(data);
+  const [filtersOn, setFiltersOn] = useState(false);
+
+  const addFilter = (value) => {
+    if (!filters.includes(value)) {
+      setFilters((prevFilters) => [...prevFilters, value]);
+    }
+  };
+
+  const handleclear = () => {
+    setFilters([]);
+    setFiltersOn(false);
+  };
+
+  const removeFilter = (filterToRemove) => {
+    setFilters(filters.filter((filter) => filter !== filterToRemove));
+    if (filters.length <= 1) {
+      setFiltersOn(false);
+    }
+  };
+
+  useEffect(() => {
+    if (filters.length === 0) {
+      setFilteredJobs(data);
+    } else {
+      const filteredData = data.filter((job) => {
+        const jobFilters = [
+          job.role,
+          job.level,
+          ...job.languages,
+          ...job.tools,
+        ];
+        return filters.every((filter) => jobFilters.includes(filter));
+      });
+      setFilteredJobs(filteredData);
+    }
+  }, [filters]);
+
   return (
     <div className="main_container">
       <div className="main_header">
         <img src={"/images/bg-header-desktop.svg"} alt="" />
       </div>
 
-      <div className="filter_container">
-        <Filter />
-      </div>
-
+      {filtersOn && (
+        <div className="filter_container">
+          <Filter
+            filters={filters}
+            clear={handleclear}
+            removeFilter={removeFilter}
+          />
+        </div>
+      )}
       <div className="cards_container">
-        {data && data.map((elem) => <JobCards key={elem.id} job={elem} />)}
+        {filteredJobs.map((elem) => (
+          <JobCards
+            key={elem.id}
+            job={elem}
+            addFilter={addFilter}
+            setFiltersOn={setFiltersOn}
+          />
+        ))}
       </div>
     </div>
   );

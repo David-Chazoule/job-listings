@@ -5,9 +5,14 @@
   box-shadow: 5px 7px 9px 0px rgba(0, 0, 0, 0.51);
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 20px;
   background-color: white;
   margin-bottom: 3vh;
+
+  &.border {
+    border-left: 6px solid $DesaturatedDarkCyan;
+    padding-left: 4px;
+  }
 
   .information_container {
     display: flex;
@@ -19,7 +24,6 @@
       justify-content: center;
       width: 20%;
       img {
-        width: 60px;
       }
     }
 
@@ -98,6 +102,12 @@
       margin: 4px;
       padding: 6px;
       border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $DesaturatedDarkCyan;
+        color: white;
+      }
     }
   }
 }

@@ -1,0 +1,45 @@
+.filter-box {
+  display: flex;
+  width: 100%;
+
+  padding: 1rem;
+
+  border-radius: 8px;
+
+  .filters {
+    display: flex;
+    align-items: center;
+
+    p {
+      background-color: $LightGrayishCyan;
+      color: $DesaturatedDarkCyan;
+      font-weight: 700;
+
+      padding: 6px;
+      border-radius: 5px 0 0 5px;
+
+      text-align: center;
+    }
+
+    span {
+      background-color: $DesaturatedDarkCyan;
+      color: white;
+      font-weight: 700;
+      padding: 6px 10px;
+      margin-right: 6px;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: black;
+      }
+    }
+  }
+
+  .clear-box {
+    margin-left: auto;
+    color: $DesaturatedDarkCyan;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
