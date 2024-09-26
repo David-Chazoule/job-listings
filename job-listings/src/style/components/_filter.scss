@@ -1,45 +1,91 @@
 .filter-box {
   display: flex;
   width: 100%;
-
   padding: 1rem;
-
   border-radius: 8px;
+
+  @media screen and (max-width: 750px) {
+    flex-wrap: wrap;
+  }
 
   .filters {
     display: flex;
     align-items: center;
 
-    p {
-      background-color: $LightGrayishCyan;
-      color: $DesaturatedDarkCyan;
-      font-weight: 700;
-
-      padding: 6px;
-      border-radius: 5px 0 0 5px;
-
-      text-align: center;
+    @media screen and (max-width: 750px) {
+      flex-wrap: wrap;
+      width: 80%;
     }
 
-    span {
-      background-color: $DesaturatedDarkCyan;
-      color: white;
-      font-weight: 700;
-      padding: 6px 10px;
-      margin-right: 6px;
-      border-radius: 0 5px 5px 0;
-      cursor: pointer;
+    div {
+      display: flex;
+      align-items: center;
+      width: auto;
+      margin: 2px;
 
-      &:hover {
-        background-color: black;
+      p {
+        background-color: $LightGrayishCyan;
+        color: $DesaturatedDarkCyan;
+        font-weight: 700;
+        padding: 6px;
+        border-radius: 5px 0 0 5px;
+        font-family: $font1;
+        text-align: center;
+
+        @media screen and (max-width: 1000px) {
+          font-size: 14px;
+        }
+
+        @media screen and (max-width: 750px) {
+          display: flex;
+        }
+
+        @media screen and (max-width: 600px) {
+          font-size: 12px;
+          margin: 4px;
+        }
+      }
+
+      span {
+        background-color: $DesaturatedDarkCyan;
+        color: white;
+        font-weight: 700;
+        padding: 6px 10px;
+        margin-right: 6px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+
+        @media screen and (max-width: 1000px) {
+          font-size: 14px;
+        }
+
+        @media screen and (max-width: 520px) {
+          font-size: 12px;
+        }
+
+        font-family: $font1;
+
+        &:hover {
+          background-color: black;
+        }
       }
     }
   }
 
   .clear-box {
+    display: flex;
+    align-items: center;
     margin-left: auto;
     color: $DesaturatedDarkCyan;
     font-weight: 700;
     cursor: pointer;
+
+    p {
+      margin-right: 6px;
+      font-family: $font1;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

@@ -1,17 +1,18 @@
 .main_container {
   display: flex;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   background-color: $LightGrayishCyan;
+  position: relative;
 
   .main_header {
     display: flex;
     width: 100%;
     background-color: $DesaturatedDarkCyan;
-    position: relative;
+    height: 120px;
+
     img {
       width: 100%;
     }
@@ -22,9 +23,18 @@
     flex-direction: column;
     width: 100%;
     height: auto;
+    min-height: 80vh;
     align-items: center;
-    justify-content: center;
-    margin-top: 8vh;
+
+    margin-top: 10vh;
+
+    @media screen and (max-width: 750px) {
+      margin-top: 10vh;
+    }
+
+    @media screen and (max-width: 400px) {
+      margin-top: 14vh;
+    }
   }
 
   .filter_container {
@@ -33,10 +43,24 @@
     justify-content: center;
     position: absolute;
     background-color: white;
-    width: 62%;
-    top: 16%;
-    transform: translateY(-50%);
+    min-width: 105vh;
+    top: 94px;
+    transform: translateY(-20%);
     height: 80px;
     z-index: 10;
+    border-radius: 10px;
+    box-shadow: 0px 11px 30px -9px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 11px 30px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 11px 30px -9px rgba(0, 0, 0, 0.75);
+
+    @media screen and (max-width: 1000px) {
+      min-width: 79vh;
+    }
+
+    @media screen and (max-width: 750px) {
+      min-width: 0;
+      width: 86%;
+      height: auto;
+    }
   }
 }

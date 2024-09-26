@@ -1,6 +1,6 @@
 import React from "react";
 
-function JobCards({ job, addFilter ,setFiltersOn }) {
+function JobCards({ job, addFilter, setFiltersOn }) {
   const {
     company,
     logo,
@@ -20,7 +20,7 @@ function JobCards({ job, addFilter ,setFiltersOn }) {
     addFilter(value);
     setFiltersOn(true);
   };
-        
+
   return (
     <div className={`card_container ${featured ? "border" : ""}`}>
       <div className="information_container">
@@ -38,13 +38,15 @@ function JobCards({ job, addFilter ,setFiltersOn }) {
           </span>
           <span className="information">
             <p>{postedAt}</p>
-            <span>-</span>
+            <span>.</span>
             <p>{contract}</p>
-            <span>-</span>
+            <span>.</span>
             <p>{location}</p>
           </span>
         </div>
       </div>
+
+      <span className="line"></span>
 
       <div className="languages_Tools_container">
         <p className="role" onClick={() => handleAddFilter(role)}>

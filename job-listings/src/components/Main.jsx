@@ -9,25 +9,29 @@ function Main() {
   const [filteredJobs, setFilteredJobs] = useState(data);
   const [filtersOn, setFiltersOn] = useState(false);
 
+  // Function to add a new filter if it's not already in the filters array
   const addFilter = (value) => {
     if (!filters.includes(value)) {
       setFilters((prevFilters) => [...prevFilters, value]);
     }
   };
 
+  // Function to clear all filters and hide the filter display
   const handleclear = () => {
     setFilters([]);
     setFiltersOn(false);
   };
 
+  // Function to remove a specific filter from the filters array
   const removeFilter = (filterToRemove) => {
     setFilters(filters.filter((filter) => filter !== filterToRemove));
     if (filters.length <= 1) {
       setFiltersOn(false);
     }
   };
-
+  // useEffect to filter job listings based on the selected filters
   useEffect(() => {
+    // If there are no filters, reset filteredJobs to the original data
     if (filters.length === 0) {
       setFilteredJobs(data);
     } else {
@@ -38,6 +42,7 @@ function Main() {
           ...job.languages,
           ...job.tools,
         ];
+        // Check if every selected filter is included in the job's filters
         return filters.every((filter) => jobFilters.includes(filter));
       });
       setFilteredJobs(filteredData);

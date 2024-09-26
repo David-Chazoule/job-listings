@@ -5,10 +5,10 @@ function Filter({ filters, clear, removeFilter }) {
     <div className="filter-box">
       <div className="filters">
         {filters.map((filter, index) => (
-          <>
+          <div>
             <p key={index}>{filter}</p>
             <span onClick={() => removeFilter(filter)}>X</span>
-          </>
+          </div>
         ))}
       </div>
       <div className="clear-box">
