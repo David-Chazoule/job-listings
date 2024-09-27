@@ -25,7 +25,7 @@ function JobCards({ job, addFilter, setFiltersOn }) {
     <div className={`card_container ${featured ? "border" : ""}`}>
       <div className="information_container">
         <div className="img_container">
-          <img src={`/images/${logo}`} alt={`${company} logo`} />
+          <img src={`${process.env.PUBLIC_URL}/images/${logo}`} alt={`${company} logo`} />
         </div>
         <div>
           <span className="company-box">
