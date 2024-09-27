@@ -11,14 +11,18 @@
   margin-bottom: 3vh;
   font-family: $font1;
 
-  @media screen and (max-width: 1000px) {
-    min-width: 74vh;
-    width: 80%;
+  @media screen and (max-width: 1024px) {
+    min-width: 74vh !important;
+    padding: 20px;
+  }
+
+  @media screen and (max-width: 950px) {
+    min-width: 60vh !important;
   }
 
   @media screen and (max-width: 750px) {
-    min-width: 0;
-
+    min-width: 0 !important;
+    width: 80%;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 6vh;
