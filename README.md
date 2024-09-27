@@ -6,7 +6,7 @@
 
 This is my solution to the [Job listings with filtering Challenge](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt) on Frontend Mentor.
 
-[Online here](https://david-chazoule.github.io/age-calculator/)
+[Online here](https://david-chazoule.github.io/job-listings/)
 
 Thanks for checking out this front-end coding challenge.
 
